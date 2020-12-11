@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ProductActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:titleTextColor="@color/colorOrange"
+            android:background="@color/colorWhite" />
+        <LinearLayout
+            android:id="@+id/lnl_add_sales_dsipatch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_margin="16dp">
+
+            <EditText
+                android:id="@+id/client_company_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/myedittext"
+                android:padding="9dp"
+                android:layout_margin="3dp"
+                android:hint="Client Name"/>
+            <EditText
+                android:id="@+id/product_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/myedittext"
+                android:padding="9dp"
+                android:layout_margin="3dp"
+                android:hint="Product Name"/>
+            <EditText
+                android:id="@+id/product_quantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:background="@drawable/myedittext"
+                android:padding="9dp"
+                android:inputType="numberDecimal"
+                android:hint="Quantity"/>
+            <EditText
+                android:id="@+id/product_price_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/myedittext"
+                android:padding="9dp"
+                android:inputType="numberDecimal"
+                android:layout_margin="3dp"
+                android:hint="Total price"/>
+            <EditText
+                android:id="@+id/product_price_paid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/myedittext"
+                android:padding="9dp"
+                android:inputType="numberDecimal"
+                android:layout_margin="3dp"
+                android:hint="Paid Amount"/>
+            <EditText
+                android:visibility="gone"
+                android:id="@+id/product_price_remain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/myedittext"
+                android:padding="9dp"
+                android:inputType="numberDecimal"
+                android:layout_margin="3dp"
+                android:hint="Remain Amount"/>
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="wrap_content"
+                android:layout_height="39dp"
+                android:text="Save Sales"
+                android:layout_margin="5dp"
+                android:textAllCaps="false"
+                android:padding="5dp"
+                android:drawableTint="@color/colorWhite"
+                android:drawableLeft="@drawable/ic_baseline_save_24"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/mybuttton_gray"
+                android:layout_gravity="center"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lnl_list_of_sales_dispatch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/lnl_sales_list_background"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGray"
+                android:textSize="15dp"
+                android:layout_margin="5dp"
+                android:textStyle="bold"
+                android:text="List Of Sales"
+                android:padding="9dp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerviewSales"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="@color/colorWhite"
+        android:backgroundTint="@color/colorGray"
+        android:layout_gravity="center|bottom"
+        app:rippleColor="@color/colorPrimary"
+        android:src="@drawable/ic_baseline_add_24"
+        android:layout_margin="16dp"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
