@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.karake.EReport.R;
+import com.karake.EReport.utils.PrefManager;
 
 public class MainActivity extends AppCompatActivity {
     CardView lnl_client,lnl_purchased,lnl_store,lnl_product;
@@ -20,6 +21,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 
+        if(new PrefManager(getApplicationContext()).getCurrentUser() < 1){
+
+            Intent goToLogin = new Intent(this,LoginActivity.class);
+            startActivity(goToLogin);
+            finish();
+
+        }
 
         // prepare initialization
         lnl_client = findViewById(R.id.lnl_client);

@@ -56,8 +56,8 @@ public class Sales extends AppCompatActivity implements SalesAdapter.SalesAdapte
         setContentView(R.layout.activity_sales);
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 
-        new PrefManager(getApplicationContext()).setCurrentClient(0);
-        new PrefManager(getApplicationContext()).setCurrentProduct(0);
+        //new PrefManager(getApplicationContext()).setCurrentClient(0);
+//        new PrefManager(getApplicationContext()).setCurrentProduct(0);
 
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Sales");
@@ -135,6 +135,7 @@ public class Sales extends AppCompatActivity implements SalesAdapter.SalesAdapte
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Sale sale = new Sale();
                 int total = 0;
                 int balance = 0;
@@ -152,6 +153,11 @@ public class Sales extends AppCompatActivity implements SalesAdapter.SalesAdapte
                     // SweetAlert
                     Toast.makeText(getApplicationContext(), "Product Sold successful", Toast.LENGTH_SHORT).show();
                     Intent sold = new Intent(getApplicationContext(),Sales.class);
+                    Product product = db_helper.getProductByID(Integer.parseInt(ed_product_id.getText().toString()));
+
+                    product.setQuantity(product.getQuantity()  - Integer.parseInt(ed_quantity.getText().toString()));
+                    db_helper.updateProduct(product);
+
                     startActivity(sold);
                     getAllSales();
                     emptyAllEditField();
